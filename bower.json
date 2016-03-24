@@ -1,0 +1,26 @@
+{
+    "name": "d3sparql",
+    "description": "d3sparql",
+    "version": "1.0.0",
+    "dependencies": {
+	"d3": "*",
+	"bootstrap": "*",
+	"google-code-prettify": "*",
+	"jquery": "*",
+	"topojson": "*",
+	"grunt" : "*",
+	"grunt-contrib-jshint" : "*",
+	"grunt-contrib-watch" : "*",
+	"grunt-cli" : "*"
+    },
+
+    "overrides":{
+	"bootstrap" : {
+	    "main": [
+		"less/bootstrap.less",
+		"dist/css/bootstrap.css",
+		"dist/js/bootstrap.js"
+	    ]
+	}
+    }
+}
