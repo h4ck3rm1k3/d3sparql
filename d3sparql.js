@@ -123,10 +123,36 @@ d3sparql.graph = function(json, config) {
     for (var i = 0; i < data.length; i++) {
 	var key1 = data[i][opts.key1].value;
 	var key2 = data[i][opts.key2].value;
-	var label1 = opts.label1 ? data[i][opts.label1].value : key1;
-	var label2 = opts.label2 ? data[i][opts.label2].value : key2;
-	var value1 = opts.value1 ? data[i][opts.value1].value : false;
-	var value2 = opts.value2 ? data[i][opts.value2].value : false;
+
+	var label1 = key1;
+	var label2 = key2;
+	if ( opts.label1){
+	    if (data[i][opts.label1])
+	    {
+		label1 = data[i][opts.label1].value;
+	    }
+	}
+	if ( opts.label2){
+	    if (data[i][opts.label2])
+	    {
+		label2 = data[i][opts.label2].value;
+	    }
+	}
+
+	var value1 = false;
+	if (opts.value1) {
+	    if ( data[i][opts.value1]) {
+		value1 = data[i][opts.value1].value;
+	    }
+	}
+	
+	var value2 = false;
+	if (opts.value2) {
+	    if ( data[i][opts.value2]) {
+		value2 = data[i][opts.value2].value;
+	    }
+	}
+	
 	if (!check.has(key1)) {
 	    graph.nodes.push({"key": key1, "label": label1, "value": value1});
 	    check.set(key1, index);
